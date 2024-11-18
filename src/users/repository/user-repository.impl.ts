@@ -31,4 +31,19 @@ export class UserRepositoryImpl implements UserRepository {
       },
     });
   }
+
+  async findByToken(token: string): Promise<UserResponseDto | null> {
+    return await this.userRepository.findOne({
+      where: {
+        validationToken: token,
+      },
+    });
+  }
+
+  async updateChecked(id: string): Promise<void> {
+    await this.userRepository.update(id, {
+      checked: true,
+      validationToken: null,
+    });
+  }
 }

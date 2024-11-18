@@ -13,6 +13,8 @@ import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
 import { ConfigService } from '@nestjs/config';
 import { Env } from 'src/config/env';
+import { ConfirmEmailController } from './controller/confirm-email.controller';
+import { ConfirmEmailService } from './service/confirm-email.service';
 
 @Module({
   imports: [
@@ -39,6 +41,8 @@ import { Env } from 'src/config/env';
 
     //Controller para authenticar um usuário
     LoginController,
+
+    ConfirmEmailController,
   ],
   providers: [
     //Service para cria um usuário
@@ -52,6 +56,7 @@ import { Env } from 'src/config/env';
 
     // Service para authenticar um usuário
     LoginService,
+    ConfirmEmailService,
 
     {
       provide: UserRepository,

@@ -3,5 +3,8 @@ import { UserResponseDto } from '../dto/user-response.dto';
 
 export abstract class UserRepository {
   abstract create(createUserDto: CreateUserDto): Promise<UserResponseDto>;
-  abstract findByEmail(email: string): Promise<UserResponseDto>;
+  abstract findByEmail(email: string): Promise<UserResponseDto | null>;
+  abstract findByToken(token: string): Promise<UserResponseDto | null>;
+
+  abstract updateChecked(id: string): Promise<void>;
 }

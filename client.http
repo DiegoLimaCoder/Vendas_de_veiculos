@@ -15,6 +15,10 @@ content-Type: application/json
 }
 
 
+### Confirma o email do usuário
+GET {{localhost}}/email/confirm?token=bfa1e355-4ffd-4250-beaf-e631e75c0678
+
+
 ### Faz Autenticação de um usuário
 POST {{localhost}}/auth/login
 content-Type: application/json

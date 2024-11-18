@@ -31,9 +31,9 @@ export class User {
   password: string;
 
   @Column({ type: 'boolean', default: false })
-  checked?: false;
+  checked?: boolean;
 
-  @Column({ unique: true, default: () => 'uuid_generate_v4()' })
+  @Column({ unique: true, nullable: true, default: () => 'uuid_generate_v4()' })
   validationToken?: string;
 
   @Column({ unique: true, nullable: true })

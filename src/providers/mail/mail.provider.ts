@@ -6,6 +6,7 @@ import { Env } from 'src/config/env';
 @Injectable()
 export class MailProvider {
   private transporter: nodemailer.Transporter;
+  private port: number;
 
   constructor(private readonly configService: ConfigService<Env>) {
     this.transporter = nodemailer.createTransport({
@@ -17,6 +18,7 @@ export class MailProvider {
         pass: this.configService.get<string>('MAIL_PASSWORD', { infer: true }),
       },
     });
+    this.port = configService.get('PORT');
   }
 
   async sendEmail(userEmail: string, validationId: string): Promise<void> {
@@ -24,7 +26,7 @@ export class MailProvider {
       from: this.configService.get('MAIL_EMAIL', { infer: true }),
       to: userEmail,
       subject: 'Confirme seu e-mail clicando no link abaixo',
-      text: `http://localhost:3000/auth/email/confirm?token=${validationId}`,
+      text: `http://localhost:${this.port}/email/confirm?token=${validationId}`,
     };
 
     await this.transporter.sendMail(mailOptions);
