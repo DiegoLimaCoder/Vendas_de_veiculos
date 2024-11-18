@@ -13,3 +13,13 @@ content-Type: application/json
   "email": "diegolimareis21@gmail.com",
   "password":"P@ssw0rd!2024"
 }
+
+
+### Faz Autenticação de um usuário
+POST {{localhost}}/auth/login
+content-Type: application/json
+
+{
+  "email": "diegolimareis21@gmail.com",
+  "password":"P@ssw0rd!2024"
+}
