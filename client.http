@@ -1,0 +1,15 @@
+@localhost = http://localhost:3333
+
+
+#################################################### USER ########################################
+
+
+### Cria um usuário
+POST {{localhost}}/auth/register
+content-Type: application/json
+
+{
+  "name": "diego",
+  "email": "diegolimareis21@gmail.com",
+  "password":"P@ssw0rd!2024"
+}
