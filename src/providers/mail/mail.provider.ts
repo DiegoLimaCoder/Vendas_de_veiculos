@@ -37,7 +37,7 @@ export class MailProvider {
       from: this.configService.get('MAIL_EMAIL', { infer: true }),
       to: userEmail,
       subject: 'Clique aqui para recuperar sua senha',
-      text: `http://localhost:3000/auth/updatePassword?token=${resetToken}`,
+      text: `http://localhost:${this.port}/password/reset?token=${resetToken}`,
     };
 
     await this.transporter.sendMail(mailOptions);

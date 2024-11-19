@@ -18,6 +18,8 @@ import { ConfirmEmailService } from './service/confirm-email.service';
 import { ForgotPasswordController } from './controller/forgot-password.controller';
 import { ForgotPasswordService } from './service/forgot-password.service';
 import { TokenService } from 'src/providers/uuid/token.service';
+import { PasswordResetController } from './controller/password-reset.controller';
+import { PasswordResetService } from './service/password-reset.service';
 
 @Module({
   imports: [
@@ -48,6 +50,8 @@ import { TokenService } from 'src/providers/uuid/token.service';
     ConfirmEmailController,
 
     ForgotPasswordController,
+
+    PasswordResetController,
   ],
   providers: [
     //Service para cria um usuário
@@ -64,9 +68,11 @@ import { TokenService } from 'src/providers/uuid/token.service';
 
     ConfirmEmailService,
 
+    TokenService,
+
     ForgotPasswordService,
 
-    TokenService,
+    PasswordResetService,
 
     {
       provide: UserRepository,

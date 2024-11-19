@@ -34,9 +34,7 @@ export class UserRepositoryImpl implements UserRepository {
 
   async findByToken(token: string): Promise<UserResponseDto | null> {
     return await this.userRepository.findOne({
-      where: {
-        validationToken: token,
-      },
+      where: [{ validationToken: token }, { resetToken: token }],
     });
   }
 
@@ -50,6 +48,13 @@ export class UserRepositoryImpl implements UserRepository {
   async generateResetToken(id: string, resetToken: string): Promise<void> {
     await this.userRepository.update(id, {
       resetToken,
+    });
+  }
+
+  async updatepassword(id: string, password: string): Promise<void> {
+    await this.userRepository.update(id, {
+      password,
+      resetToken: null,
     });
   }
 }

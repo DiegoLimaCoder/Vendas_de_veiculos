@@ -19,19 +19,27 @@ content-Type: application/json
 GET {{localhost}}/email/confirm?token=bfa1e355-4ffd-4250-beaf-e631e75c0678
 
 
-### Faz Autenticação de um usuário
-POST {{localhost}}/auth/login
-content-Type: application/json
-
-{
-  "email": "diegolimareis21@gmail.com",
-  "password":"P@ssw0rd!2024"
-}
-
 ### Envia um email para recuperar sua senha
 POST {{localhost}}/password/forgot
 content-Type: application/json
 
 {
   "email": "diegolimareis21@gmail.com"
+}
+
+### Atualizar a senha
+PATCH  {{localhost}}/password/reset?token=cd8f9dfd-f899-418c-b1c8-a5a999a9bb2e
+content-Type: application/json
+
+{
+  "password": "NovaSenha123"
+}
+
+### Faz Autenticação de um usuário
+POST {{localhost}}/auth/login
+content-Type: application/json
+
+{
+  "email": "diegolimareis21@gmail.com",
+  "password":"NovaSenha123"
 }
