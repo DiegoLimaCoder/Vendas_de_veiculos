@@ -46,4 +46,10 @@ export class UserRepositoryImpl implements UserRepository {
       validationToken: null,
     });
   }
+
+  async generateResetToken(id: string, resetToken: string): Promise<void> {
+    await this.userRepository.update(id, {
+      resetToken,
+    });
+  }
 }

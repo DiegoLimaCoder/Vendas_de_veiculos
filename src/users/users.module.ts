@@ -15,6 +15,9 @@ import { ConfigService } from '@nestjs/config';
 import { Env } from 'src/config/env';
 import { ConfirmEmailController } from './controller/confirm-email.controller';
 import { ConfirmEmailService } from './service/confirm-email.service';
+import { ForgotPasswordController } from './controller/forgot-password.controller';
+import { ForgotPasswordService } from './service/forgot-password.service';
+import { TokenService } from 'src/providers/uuid/token.service';
 
 @Module({
   imports: [
@@ -43,6 +46,8 @@ import { ConfirmEmailService } from './service/confirm-email.service';
     LoginController,
 
     ConfirmEmailController,
+
+    ForgotPasswordController,
   ],
   providers: [
     //Service para cria um usuário
@@ -56,7 +61,12 @@ import { ConfirmEmailService } from './service/confirm-email.service';
 
     // Service para authenticar um usuário
     LoginService,
+
     ConfirmEmailService,
+
+    ForgotPasswordService,
+
+    TokenService,
 
     {
       provide: UserRepository,

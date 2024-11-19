@@ -7,4 +7,5 @@ export abstract class UserRepository {
   abstract findByToken(token: string): Promise<UserResponseDto | null>;
 
   abstract updateChecked(id: string): Promise<void>;
+  abstract generateResetToken(id: string, resetToken: string): Promise<void>;
 }
