@@ -7,6 +7,6 @@ export class GetByStatusVehiclesService {
   constructor(private readonly vehicleRepository: VehicleRepository) {}
 
   async getByStatusVehicles(status: VehicleStatus) {
-    return await this.vehicleRepository.getByStatusVehicles(status);
+    return await this.vehicleRepository.getByStatus(status);
   }
 }

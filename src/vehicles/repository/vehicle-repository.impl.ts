@@ -11,17 +11,17 @@ export class vehicleRepositoryImp implements VehicleRepository {
     private readonly vehicleRepository: Repository<vehicle>,
   ) {}
 
-  async createVehicle(
+  async create(
     createVehicleDto: CreateVehicleDto,
   ): Promise<VehicleResponseDto> {
     return await this.vehicleRepository.save(createVehicleDto);
   }
 
-  async getAllVehicles(): Promise<VehicleResponseDto[]> {
+  async getAll(): Promise<VehicleResponseDto[]> {
     return await this.vehicleRepository.find();
   }
 
-  async getByStatusVehicles(
+  async getByStatus(
     vehicleStatus: VehicleStatus,
   ): Promise<VehicleResponseDto[]> {
     return await this.vehicleRepository.find({

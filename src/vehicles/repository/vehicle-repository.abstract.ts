@@ -2,13 +2,13 @@ import { CreateVehicleDto, VehicleStatus } from '../dto/create-vehicle.dto';
 import { VehicleResponseDto } from '../dto/vehicle.response.dto';
 
 export abstract class VehicleRepository {
-  abstract createVehicle(
+  abstract create(
     createVehicleDto: CreateVehicleDto,
   ): Promise<VehicleResponseDto>;
 
-  abstract getAllVehicles(): Promise<VehicleResponseDto[]>;
+  abstract getAll(): Promise<VehicleResponseDto[]>;
 
-  abstract getByStatusVehicles(
+  abstract getByStatus(
     vehicleStatus: VehicleStatus,
   ): Promise<VehicleResponseDto[]>;
 }

@@ -5,6 +5,6 @@ import { VehicleRepository } from '../repository/vehicle-repository.abstract';
 export class getAllVehiclesService {
   constructor(private readonly vehicleRepository: VehicleRepository) {}
   async getAllVehicles() {
-    return await this.vehicleRepository.getAllVehicles();
+    return await this.vehicleRepository.getAll();
   }
 }

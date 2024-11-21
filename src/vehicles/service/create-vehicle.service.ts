@@ -7,6 +7,6 @@ export class CreateVehicleService {
   constructor(private readonly vehicleRepository: VehicleRepository) {}
 
   async createVehicle(createVehicleDto: CreateVehicleDto) {
-    return await this.vehicleRepository.createVehicle(createVehicleDto);
+    return await this.vehicleRepository.create(createVehicleDto);
   }
 }
