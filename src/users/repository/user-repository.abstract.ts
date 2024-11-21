@@ -9,4 +9,6 @@ export abstract class UserRepository {
   abstract updateChecked(id: string): Promise<void>;
   abstract generateResetToken(id: string, resetToken: string): Promise<void>;
   abstract updatepassword(id: string, password: string): Promise<void>;
+
+  abstract findById(id: string): Promise<UserResponseDto>;
 }

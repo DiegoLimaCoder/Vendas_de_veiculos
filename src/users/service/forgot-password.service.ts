@@ -1,4 +1,8 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import {
+  ConflictException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { UserRepository } from '../repository/user-repository.abstract';
 import { ForgotPasswordDto } from '../dto/forgot-password.dto';
 import { TokenService } from 'src/providers/uuid/token.service';
@@ -18,7 +22,9 @@ export class ForgotPasswordService {
     if (!user) {
       throw new NotFoundException('Email não registrado');
     }
-
+    if (!user.checked) {
+      throw new ConflictException('O e-mail já existe');
+    }
     const resetToken = this.tokenService.generateToken();
 
     await this.userRepository.generateResetToken(user.id, resetToken);

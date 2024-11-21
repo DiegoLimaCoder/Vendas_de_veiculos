@@ -31,8 +31,8 @@ export class LoginService {
 
     const payload: JwtPayload = {
       sub: user.id,
-      email: user.email,
       checked: user.checked,
+      role: user.role,
     };
 
     return {

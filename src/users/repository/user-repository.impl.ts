@@ -57,4 +57,10 @@ export class UserRepositoryImpl implements UserRepository {
       resetToken: null,
     });
   }
+
+  async findById(id: string): Promise<UserResponseDto> {
+    return await this.userRepository.findOne({
+      where: { id },
+    });
+  }
 }

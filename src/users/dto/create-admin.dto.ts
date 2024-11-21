@@ -1,8 +1,8 @@
 import { IsEmail, IsEnum, IsNotEmpty, IsString } from 'class-validator';
 
 export enum UserRole {
-  ADMIN,
-  CUSTOMER,
+  ADMIN = 'ADMIN',
+  CUSTOMER = 'CUSTOMER',
 }
 
 export class CreateAdminDto {

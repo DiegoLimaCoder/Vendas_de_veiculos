@@ -9,8 +9,8 @@ import {
 } from 'typeorm';
 
 export enum UserRole {
-  ADMIN,
-  CUSTOMER,
+  ADMIN = 'ADMIN',
+  CUSTOMER = 'CUSTOMER',
 }
 
 /**
