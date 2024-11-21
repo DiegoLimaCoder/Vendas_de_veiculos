@@ -1,7 +1,10 @@
+import { User } from 'src/users/entities/user.entity';
 import {
   Column,
   CreateDateColumn,
   Entity,
+  JoinColumn,
+  ManyToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
@@ -13,7 +16,7 @@ export enum VehicleStatus {
 }
 
 @Entity({ name: 'vehicles' })
-export class vehicle {
+export class Vehicle {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
@@ -37,6 +40,10 @@ export class vehicle {
 
   @Column({ type: 'enum', enum: VehicleStatus })
   status: VehicleStatus;
+
+  @ManyToOne(() => User, (user) => user.vehicles)
+  @JoinColumn({ name: 'user_id' })
+  userId: User;
 
   @CreateDateColumn()
   createdAt: Date;

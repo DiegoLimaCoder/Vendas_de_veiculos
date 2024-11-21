@@ -1,6 +1,6 @@
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { vehicle } from '../entities/vehicle.entity';
+import { Vehicle } from '../entities/vehicle.entity';
 import { VehicleRepository } from './vehicle-repository.abstract';
 import { CreateVehicleDto } from '../dto/create-vehicle.dto';
 import { VehicleResponseDto } from '../dto/vehicle.response.dto';
@@ -9,8 +9,8 @@ import { VehicleSearchQueryBuilder } from './vehicle-search-query-builder'; // I
 
 export class VehicleRepositoryImp implements VehicleRepository {
   constructor(
-    @InjectRepository(vehicle)
-    private readonly vehicleRepository: Repository<vehicle>,
+    @InjectRepository(Vehicle)
+    private readonly vehicleRepository: Repository<Vehicle>,
     private readonly vehicleSearchQueryBuilder: VehicleSearchQueryBuilder, // Classe com nome corrigido
   ) {}
 

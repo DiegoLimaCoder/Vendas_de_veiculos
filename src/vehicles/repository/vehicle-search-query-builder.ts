@@ -1,12 +1,12 @@
 import { SelectQueryBuilder } from 'typeorm';
-import { vehicle } from '../entities/vehicle.entity';
+import { Vehicle } from '../entities/vehicle.entity';
 import { SearchVehicleDto } from '../dto/search-vehicle.dto';
 
 export class VehicleSearchQueryBuilder {
   buildSearchQuery(
-    query: SelectQueryBuilder<vehicle>,
+    query: SelectQueryBuilder<Vehicle>,
     filters: SearchVehicleDto,
-  ): SelectQueryBuilder<vehicle> {
+  ): SelectQueryBuilder<Vehicle> {
     const conditions = [
       {
         key: 'title',

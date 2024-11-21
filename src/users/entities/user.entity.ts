@@ -1,7 +1,9 @@
+import { Vehicle } from 'src/vehicles/entities/vehicle.entity';
 import {
   Column,
   CreateDateColumn,
   Entity,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
@@ -38,6 +40,9 @@ export class User {
 
   @Column({ unique: true, nullable: true })
   resetToken?: string;
+
+  @OneToMany(() => Vehicle, (vehicle) => vehicle.userId)
+  vehicles: Vehicle[];
 
   @CreateDateColumn()
   createdAt: Date;
