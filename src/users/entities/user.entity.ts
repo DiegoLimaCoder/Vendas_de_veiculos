@@ -23,6 +23,7 @@ export class User {
 
   @Column()
   name: string;
+
   @Column({ unique: true })
   email: string;
 
@@ -41,7 +42,7 @@ export class User {
   @Column({ unique: true, nullable: true })
   resetToken?: string;
 
-  @OneToMany(() => Vehicle, (vehicle) => vehicle.userId)
+  @OneToMany(() => Vehicle, (vehicle) => vehicle.user)
   vehicles: Vehicle[];
 
   @CreateDateColumn()

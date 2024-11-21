@@ -31,4 +31,7 @@ export class VehicleResponseDto {
 
   @Expose()
   updatedAt: Date;
+
+  @Expose()
+  userId: string;
 }

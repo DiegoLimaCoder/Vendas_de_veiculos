@@ -1,6 +1,6 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { LoginDto } from '../dto/login.dto';
-import { JwtPayload } from '../dto/payload.dto';
+import { PayloadDto } from '../dto/payload.dto';
 import { PasswordService } from 'src/providers/encryption/password.encryption.service';
 import { UserRepository } from '../repository/user-repository.abstract';
 import { JwtService } from '@nestjs/jwt';
@@ -29,7 +29,7 @@ export class LoginService {
       throw new UnauthorizedException('Credenciais inválidas');
     }
 
-    const payload: JwtPayload = {
+    const payload: PayloadDto = {
       sub: user.id,
       checked: user.checked,
       role: user.role,

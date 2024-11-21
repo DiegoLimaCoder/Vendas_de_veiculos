@@ -2,10 +2,12 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Vehicle } from '../entities/vehicle.entity';
 import { VehicleRepository } from './vehicle-repository.abstract';
-import { CreateVehicleDto } from '../dto/create-vehicle.dto';
 import { VehicleResponseDto } from '../dto/vehicle.response.dto';
 import { SearchVehicleDto } from '../dto/search-vehicle.dto';
 import { VehicleSearchQueryBuilder } from './vehicle-search-query-builder'; // Importação corrigida
+import { CreateVehicleDto } from '../dto/create-vehicle.dto';
+import { plainToInstance } from 'class-transformer';
+import { PayloadDto } from 'src/users/dto/payload.dto';
 
 export class VehicleRepositoryImp implements VehicleRepository {
   constructor(
@@ -13,11 +15,20 @@ export class VehicleRepositoryImp implements VehicleRepository {
     private readonly vehicleRepository: Repository<Vehicle>,
     private readonly vehicleSearchQueryBuilder: VehicleSearchQueryBuilder, // Classe com nome corrigido
   ) {}
-
   async create(
     createVehicleDto: CreateVehicleDto,
+    userId: PayloadDto,
   ): Promise<VehicleResponseDto> {
-    return await this.vehicleRepository.save(createVehicleDto);
+    const vehicle = this.vehicleRepository.create({
+      ...createVehicleDto,
+      userId: userId.sub,
+    });
+
+    const savedVehicle = await this.vehicleRepository.save(vehicle);
+
+    return plainToInstance(VehicleResponseDto, savedVehicle, {
+      excludeExtraneousValues: true,
+    });
   }
 
   async getAll(): Promise<VehicleResponseDto[]> {

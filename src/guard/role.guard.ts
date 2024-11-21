@@ -6,7 +6,7 @@ import {
 } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { Request } from 'express';
-import { JwtPayload } from 'src/users/dto/payload.dto';
+import { PayloadDto } from 'src/users/dto/payload.dto';
 
 type RoleValidator = (role: string | undefined) => boolean;
 
@@ -25,7 +25,7 @@ export class RoleGuard implements CanActivate {
       throw new UnauthorizedException('Token não fornecido');
     }
 
-    const payload = this.jwtService.verify<JwtPayload>(token);
+    const payload = this.jwtService.verify<PayloadDto>(token);
 
     if (!payload.checked) {
       throw new UnauthorizedException('E-mail não confirmado');

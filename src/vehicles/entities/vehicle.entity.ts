@@ -41,9 +41,12 @@ export class Vehicle {
   @Column({ type: 'enum', enum: VehicleStatus })
   status: VehicleStatus;
 
-  @ManyToOne(() => User, (user) => user.vehicles)
-  @JoinColumn({ name: 'user_id' })
-  userId: User;
+  @Column()
+  userId: string;
+
+  @ManyToOne(() => User)
+  @JoinColumn({ name: 'userId' })
+  user: User;
 
   @CreateDateColumn()
   createdAt: Date;
