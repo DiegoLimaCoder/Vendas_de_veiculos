@@ -23,7 +23,7 @@ export class vehicle {
   @Column()
   description: string;
 
-  @Column({ type: 'decimal' })
+  @Column({ type: 'double precision' })
   price: number;
 
   @Column()
