@@ -8,7 +8,6 @@ export class SearchController {
 
   @Get('search')
   async searchVehicles(@Query() filters: SearchVehicleDto) {
-    console.log(typeof filters.minPrice);
     return await this.searchVehicleService.searchVehicles(filters);
   }
 }
