@@ -4,6 +4,10 @@ import { Transform } from 'class-transformer';
 
 export class SearchVehicleDto {
   @IsOptional()
+  @IsString()
+  title?: string;
+
+  @IsOptional()
   @IsEnum(VehicleStatus)
   status?: VehicleStatus;
 

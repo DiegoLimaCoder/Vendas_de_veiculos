@@ -65,9 +65,7 @@ GET  {{localhost}}/vehicles
 
 
 
-### Filtra os veículo por status
+### Pesquisar/Filtra veículo
 GET {{localhost}}/vehicles/search/status=SOLD
 
 
-### Busca veículo pelo modelo
-GET {{localhost}}/vehicles?model=mazda

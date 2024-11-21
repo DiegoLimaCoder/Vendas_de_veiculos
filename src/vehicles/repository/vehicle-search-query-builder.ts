@@ -9,6 +9,12 @@ export class VehicleSearchQueryBuilder {
   ): SelectQueryBuilder<vehicle> {
     const conditions = [
       {
+        key: 'title',
+        condition: 'vehicle.title ILIKE :title',
+        value: filters.title ? `%${filters.title}%` : undefined,
+      },
+
+      {
         key: 'status',
         condition: 'vehicle.status = :status',
         value: filters.status,
@@ -18,7 +24,11 @@ export class VehicleSearchQueryBuilder {
         condition: 'vehicle.model ILIKE :model',
         value: filters.model ? `%${filters.model}%` : undefined,
       },
-      { key: 'year', condition: 'vehicle.year = :year', value: filters.year },
+      {
+        key: 'year',
+        condition: 'vehicle.year = :year',
+        value: filters.year,
+      },
       {
         key: 'brand',
         condition: 'vehicle.brand ILIKE :brand',
