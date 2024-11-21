@@ -7,7 +7,7 @@ import { UserRepository } from './repository/user-repository.abstract';
 import { UserRepositoryImpl } from './repository/user-repository.impl';
 import { PasswordService } from 'src/providers/encryption/password.encryption.service';
 import { MailProvider } from 'src/providers/mail/mail.provider';
-import { LoginController } from './controller/login-controller';
+import { LoginController } from './controller/login.controller';
 import { LoginService } from './service/login.service';
 import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';

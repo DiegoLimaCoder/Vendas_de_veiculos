@@ -1,7 +1,7 @@
 @localhost = http://localhost:3333
 
 
-#################################################### USER ########################################
+#################################################### USERS ########################################
 
 
 ### Cria um usuário
@@ -11,7 +11,7 @@ content-Type: application/json
 {
   "name": "diego",
   "email": "diegolimareis21@gmail.com",
-  "password":"P@ssw0rd!2024"
+  "password":"NovaSenha123"
 }
 
 
@@ -41,5 +41,30 @@ content-Type: application/json
 
 {
   "email": "diegolimareis21@gmail.com",
-  "password":"NovaSenha123"
+  "password":"P@ssw0rd!2024"
 }
+
+#################################################### VEHICLES ########################################
+
+### Cadastra um veículo
+POST {{localhost}}/vehicles
+content-Type: application/json
+
+{
+  "title": "Crossover Moderno",
+  "description": "Design moderno e inovador, perfeito para todos os terrenos.",
+  "price": 50000,
+  "model": "CX-5",
+  "brand": "Mazda",
+  "year": 2020,
+  "status": "AVAILABLE"
+}
+
+### Lista todos os veículos
+GET  {{localhost}}/vehicles
+
+
+
+### Filtra os veículo por status
+GET {{localhost}}/vehicles/status/SOLD
+
