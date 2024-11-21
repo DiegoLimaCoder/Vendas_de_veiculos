@@ -21,6 +21,10 @@ export class CreateUserService {
       throw new ConflictException('O e-mail já existe');
     }
 
+    if (!userExists.checked) {
+      throw new ConflictException('O e-mail já existe');
+    }
+
     const hashedPassword = await this.passwordService.hashPassword(
       createUserDto.password,
     );

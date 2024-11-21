@@ -20,6 +20,7 @@ import { ForgotPasswordService } from './service/forgot-password.service';
 import { TokenService } from 'src/providers/uuid/token.service';
 import { PasswordResetController } from './controller/password-reset.controller';
 import { PasswordResetService } from './service/password-reset.service';
+import { CreateAdminService } from './service/create-admin.service';
 
 @Module({
   imports: [
@@ -73,6 +74,7 @@ import { PasswordResetService } from './service/password-reset.service';
     ForgotPasswordService,
 
     PasswordResetService,
+    CreateAdminService,
 
     {
       provide: UserRepository,
