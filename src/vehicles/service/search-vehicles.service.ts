@@ -1,12 +1,12 @@
 import { Injectable } from '@nestjs/common';
 import { VehicleRepository } from '../repository/vehicle-repository.abstract';
-import { VehicleStatus } from '../dto/create-vehicle.dto';
+import { SearchVehicleDto } from '../dto/search-vehicle.dto';
 
 @Injectable()
-export class GetByStatusVehiclesService {
+export class SearchVehicleService {
   constructor(private readonly vehicleRepository: VehicleRepository) {}
 
-  async getByStatusVehicles(status: VehicleStatus) {
-    return await this.vehicleRepository.getByStatus(status);
+  async searchVehicles(filters: SearchVehicleDto) {
+    return await this.vehicleRepository.search(filters);
   }
 }

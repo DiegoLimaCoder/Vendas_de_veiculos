@@ -7,20 +7,21 @@ import { VehicleRepository } from './repository/vehicle-repository.abstract';
 import { vehicleRepositoryImp } from './repository/vehicle-repository.impl';
 import { GetAllVehiclesController } from './controller/get-all-vehicles.controller';
 import { getAllVehiclesService } from './service/get-all-vehicles.service';
-import { GetByStatusVehiclesController } from './controller/get-by-status-vehicles.controller';
-import { GetByStatusVehiclesService } from './service/get-by-status-vehicles.service';
+
+import { SearchVehicleService } from './service/search-vehicles.service';
+import { SearchController } from './controller/search-vehicle.controller';
 
 @Module({
   imports: [TypeOrmModule.forFeature([vehicle])],
   controllers: [
     CreateVehicleController,
     GetAllVehiclesController,
-    GetByStatusVehiclesController,
+    SearchController,
   ],
   providers: [
     CreateVehicleService,
     getAllVehiclesService,
-    GetByStatusVehiclesService,
+    SearchVehicleService,
     {
       provide: VehicleRepository,
       useClass: vehicleRepositoryImp,

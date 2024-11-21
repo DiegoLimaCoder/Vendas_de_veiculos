@@ -1,4 +1,5 @@
-import { CreateVehicleDto, VehicleStatus } from '../dto/create-vehicle.dto';
+import { CreateVehicleDto } from '../dto/create-vehicle.dto';
+import { SearchVehicleDto } from '../dto/search-vehicle.dto';
 import { VehicleResponseDto } from '../dto/vehicle.response.dto';
 
 export abstract class VehicleRepository {
@@ -8,7 +9,5 @@ export abstract class VehicleRepository {
 
   abstract getAll(): Promise<VehicleResponseDto[]>;
 
-  abstract getByStatus(
-    vehicleStatus: VehicleStatus,
-  ): Promise<VehicleResponseDto[]>;
+  abstract search(filters: SearchVehicleDto): Promise<VehicleResponseDto[]>;
 }

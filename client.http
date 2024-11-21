@@ -55,7 +55,7 @@ content-Type: application/json
   "description": "Design moderno e inovador, perfeito para todos os terrenos.",
   "price": 50000,
   "model": "CX-5",
-  "brand": "Mazda",
+  "brand": "mazda",
   "year": 2020,
   "status": "AVAILABLE"
 }
@@ -66,5 +66,8 @@ GET  {{localhost}}/vehicles
 
 
 ### Filtra os veículo por status
-GET {{localhost}}/vehicles/status/SOLD
+GET {{localhost}}/vehicles/search/status=SOLD
 
+
+### Busca veículo pelo modelo
+GET {{localhost}}/vehicles?model=mazda
