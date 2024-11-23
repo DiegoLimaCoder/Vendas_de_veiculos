@@ -1,5 +1,6 @@
-import { Expose } from 'class-transformer';
+import { Expose, Type } from 'class-transformer';
 import { VehicleStatus } from './create-vehicle.dto';
+import { UserResponseDto } from 'src/users/dto/user-response.dto';
 
 export class VehicleResponseDto {
   @Expose()
@@ -34,4 +35,8 @@ export class VehicleResponseDto {
 
   @Expose()
   userId: string;
+
+  @Type(() => UserResponseDto)
+  @Expose()
+  user: UserResponseDto;
 }

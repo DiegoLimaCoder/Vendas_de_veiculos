@@ -32,7 +32,13 @@ export class VehicleRepositoryImp implements VehicleRepository {
   }
 
   async getAll(): Promise<VehicleResponseDto[]> {
-    return await this.vehicleRepository.find();
+    const vehicles = await this.vehicleRepository.find({
+      relations: ['user'],
+    });
+
+    return plainToInstance(VehicleResponseDto, vehicles, {
+      excludeExtraneousValues: true,
+    });
   }
 
   async search(filters: SearchVehicleDto): Promise<VehicleResponseDto[]> {
